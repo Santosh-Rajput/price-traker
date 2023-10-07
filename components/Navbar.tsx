@@ -9,7 +9,7 @@ const navIcons = [
 
 const Navbar = () => {
   return (
-    <header className="w-full z-40">
+    <header className="w-screen z-40">
       <nav className="nav">
         <Link href="/" className="flex items-center gap-1">
           <Image 
