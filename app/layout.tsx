@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <main className="max-w-10xl mx-auto">
-          <div className='fixed w-full bg-white z-50'>
+          <div className='sm:relative fixed w-full bg-white z-40'>
 
           <Navbar />
           </div>

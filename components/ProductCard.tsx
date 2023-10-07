@@ -10,8 +10,8 @@ interface Props {
 const ProductCard = ({ product }: Props) => {
     
   return (
-    <Link href={`/products/${product._id}`} className="product-card hover:bg-[#485690] bg-[#485690bc] hover:scale-[1.1] z-50">
-      <div className="product-card_img-container hover:bg-white-100 bg-white-200">
+    <Link href={`/products/${product._id}`} className="product-card hover:bg-[#485690] bg-[#485690bc] hover:scale-[1.1] z-0">
+      <div className="product-card_img-container hover:bg-white-100 bg-white-200 z-0">
         <Image 
           src={product.image}
           alt={product.title}
