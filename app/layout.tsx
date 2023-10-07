@@ -26,7 +26,7 @@ export default function RootLayout({
         }
         >
         <main className="max-w-10xl mx-auto">
-          <div className='sm:relative fixed w-full bg-white z-40'>
+          <div className='sm:relative  fixed w-full sm:bg-white bg-white-200 z-40'>
 
           <Navbar />
           </div>
