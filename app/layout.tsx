@@ -10,7 +10,7 @@ const spaceGrotesk = Space_Grotesk({
  })
 
 export const metadata: Metadata = {
-  title: 'Pricewise',
+  title: 'Price-Tracker',
   description: 'Track product prices effortlessly and save money on your online shopping.',
 }
 
@@ -23,7 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <main className="max-w-10xl mx-auto">
+          <div className='fixed w-full bg-white z-50'>
+
           <Navbar />
+          </div>
           {children}
         </main>
       </body>

@@ -20,19 +20,17 @@ const ProductDetails = async ({ params: { id } }: Props) => {
   const similarProducts = await getSimilarProducts(id);
 
   return (
-    <div className="product-container">
-      <div className="flex gap-28 xl:flex-row flex-col">
-        <div className="product-image">
-          <Image 
+    <div className="product-container  ">
+      <div className="flex gap-28 xl:flex-row flex-col ">
+        <div className="flex-grow xl:max-w-[50%] max-w-screen max-h-[590px] py-20 border border-[#CDDBFF] rounded-[17px]  hover:scale-[1.1]">
+          <img 
             src={product.image}
             alt={product.title}
-            width={580}
-            height={400}
-            className="mx-auto"
+            className="mx-auto -py-4 sm:object-contain sm:max-h-screen max-h-fit "
           />
         </div>
 
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 flex flex-col drop-shadow-xl">
           <div className="flex justify-between items-start gap-5 flex-wrap pb-6">
             <div className="flex flex-col gap-3">
               <p className="text-[28px] text-secondary font-semibold">
@@ -84,11 +82,20 @@ const ProductDetails = async ({ params: { id } }: Props) => {
 
           <div className="product-info">
             <div className="flex flex-col gap-2">
-              <p className="text-[34px] text-secondary font-bold">
-                {product.currency} {formatNumber(product.currentPrice)}
-              </p>
+            <p className="text-white px-4 text-lg font-semibold">
+              {(product.isOutOfStock||product.currentPrice===0) ?
+                (<p className=" text-[21px] text-black">Not Available</p>)
+                  :
+                <span className=" text-[21px] text-black">{product?.currency} {product?.currentPrice}</span>
+              }      
+            </p>
               <p className="text-[21px] text-black opacity-50 line-through">
-                {product.currency} {formatNumber(product.originalPrice)}
+              {(product.isOutOfStock||product.currentPrice===0) ?
+                (<p className=" text-[21px] text-black"></p>)
+                  :
+                <span className=" text-[21px] text-black">{product.currency} {formatNumber(product.originalPrice)}</span>
+              }  
+                
               </p>
             </div>
 
@@ -161,7 +168,7 @@ const ProductDetails = async ({ params: { id } }: Props) => {
             Product Description
           </h3>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex  flex-col gap-4  max-w-screen mx-2 max-h-full pr-3 bg-white-200 pl-3 py-2 border border-[#CDDBFF] rounded-[17px] ">
             {product?.description?.split('\n')}
           </div>
         </div>

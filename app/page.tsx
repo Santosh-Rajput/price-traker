@@ -9,9 +9,9 @@ const Home = async () => {
 
   return (
     <>
-      <section className="px-6 md:px-20 py-24">
-        <div className="flex max-xl:flex-col gap-16">
-          <div className="flex flex-col justify-center"> 
+      <section className="px-6  md:px-20 py-24">
+        <div className="flex max-xl:flex-col gap-16 ">
+          <div className="flex flex-col justify-center "> 
             <p className="small-text">
               Smart Shopping Starts Here:
               <Image 
@@ -24,7 +24,7 @@ const Home = async () => {
 
             <h1 className="head-text">
               Unleash the Power of
-              <span className="text-primary"> PriceWise</span>
+              <span className="text-primary"> Price Tracker</span>
             </h1>
 
             <p className="mt-6">
@@ -33,8 +33,10 @@ const Home = async () => {
 
             <Searchbar />
           </div>
+            
 
           <HeroCarousel />
+            
         </div>
       </section>
 

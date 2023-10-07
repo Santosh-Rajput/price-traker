@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import { extractCurrency, extractDescription, extractPrice } from '../utils';
+import { extractCategory, extractCurrency, extractDescription, extractPrice } from '../utils';
 
 export async function scrapeAmazonProduct(url: string) {
   if(!url) return;
@@ -31,18 +31,23 @@ export async function scrapeAmazonProduct(url: string) {
     // Extract the product title
     const title = $('#productTitle').text().trim();
     const currentPrice = extractPrice(
-      $('.priceToPay span.a-price-whole'),
+      // $('.priceToPay span.a-price-whole'),
+      $('.a-price-whole'),
       $('.a.size.base.a-color-price'),
       $('.a-button-selected .a-color-base'),
     );
 
     const originalPrice = extractPrice(
-      $('#priceblock_ourprice'),
+      // $('#priceblock_ourprice'),
       $('.a-price.a-text-price span.a-offscreen'),
-      $('#listPrice'),
-      $('#priceblock_dealprice'),
-      $('.a-size-base.a-color-price')
+      // $('#listPrice'),
+      // $('#priceblock_dealprice'),
+      // $('.a-size-base.a-color-price')
     );
+
+      const category=extractCategory(
+        $('.a-link-normal.a-color-tertiary')
+      )
 
     const outOfStock = $('#availability span').text().trim().toLowerCase() === 'currently unavailable';
 
@@ -68,7 +73,8 @@ export async function scrapeAmazonProduct(url: string) {
       originalPrice: Number(originalPrice) || Number(currentPrice),
       priceHistory: [],
       discountRate: Number(discountRate),
-      category: 'category',
+      // category:'category',
+      category: String(category),
       reviewsCount:100,
       stars: 4.5,
       isOutOfStock: outOfStock,

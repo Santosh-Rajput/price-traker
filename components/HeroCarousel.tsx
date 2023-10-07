@@ -5,31 +5,30 @@ import { Carousel } from 'react-responsive-carousel';
 import Image from "next/image";
 
 const heroImages = [
-  { imgUrl: '/assets/images/hero-1.svg', alt: 'smartwatch'},
-  { imgUrl: '/assets/images/hero-2.svg', alt: 'bag'},
-  { imgUrl: '/assets/images/hero-3.svg', alt: 'lamp'},
-  { imgUrl: '/assets/images/hero-4.svg', alt: 'air fryer'},
-  { imgUrl: '/assets/images/hero-5.svg', alt: 'chair'},
+  { imgUrl: '/assets/images/hero-1.png', alt: 'iphone 15' },
+  { imgUrl: '/assets/images/hero-2.png', alt: 'System'},
+  { imgUrl: '/assets/images/hero-3.png', alt: 'lamp'},
+  { imgUrl: '/assets/images/hero-4.png', alt: 'air fryer'},
+  { imgUrl: '/assets/images/hero-5.png', alt: 'chair'},
 ]
 
 const HeroCarousel = () => {
   return (
-    <div className="hero-carousel">
+    <div className="hero-carousel sm:-mt-12 mt-1 bg-primary hover:scale-[1.1] ">
       <Carousel
         showThumbs={false}
-        // autoPlay
+        autoPlay
         infiniteLoop
-        // interval={2000}
+        interval={2000}
         showArrows={false}
         showStatus={false}
       >
         {heroImages.map((image) => (
-          <Image 
+          <img
             src={image.imgUrl}
             alt={image.alt}
-            width={484}
-            height={484}
-            className="object-contain"
+            
+            className="object-contain w-[484px] h-[484px] drop-shadow-xl z-40"
             key={image.alt}
           />
         ))}
@@ -40,7 +39,7 @@ const HeroCarousel = () => {
         alt="arrow"
         width={175}
         height={175}
-        className="max-xl:hidden absolute -left-[15%] bottom-0 z-0"
+        className="max-xl:hidden absolute -left-[15%] bottom-[-110px] "
       />
     </div>
   )

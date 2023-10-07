@@ -35,6 +35,11 @@ export function extractCurrency(element: any) {
   const currencyText = element.text().trim().slice(0, 1);
   return currencyText ? currencyText : "";
 }
+// category
+export function extractCategory(element: any) {
+  const categoryText = element.text().trim().slice(0, 20);
+  return categoryText ? categoryText : "";
+}
 
 // Extracts description from two possible elements from amazon
 export function extractDescription($: any) {
@@ -42,7 +47,7 @@ export function extractDescription($: any) {
   const selectors = [
     ".a-unordered-list .a-list-item",
     ".a-expander-content p",
-    // Add more selectors here if needed
+       // Add more selectors here if needed
   ];
 
   for (const selector of selectors) {
